@@ -1,0 +1,23 @@
+.row{
+    width: 1070px;
+    float: left;
+    margin: auto;
+}
+.row:after{
+    clear: both;
+}
+.road, .wall{
+    width:  20px;
+    height: 20px;
+    float:  left;
+    border: 1px solid #fff;
+
+}
+
+.road{
+    background: yellow;
+}
+
+.wall{
+    background: red;
+}
