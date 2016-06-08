@@ -83,8 +83,15 @@ function createLabirint(objBlocks) {
     //console.log (objBlocks);
     if (arrNeiborStack.length>0) {
         //console.log(arrNeiborStack);
-        var item = arrNeiborStack[Math.floor(Math.random() * arrNeiborStack.length)]; //get one of item from array
-        createLabirint(item);
+       var item = arrNeiborStack[Math.floor(Math.random() * arrNeiborStack.length)]; //get one of item from array
+        //var itemNUmber = Math.floor(Math.random() * arrNeiborStack.length);
+        //var item = arrNeiborStack[itemNUmber];
+        //arrNeiborStack.splice(itemNUmber, 1);
+        //for (var i=0; i<arrNeiborStack.length; i++){
+        //    arrStock.push(arrNeiborStack[i]);
+        //}
+        //arrStock.push(objBlocks);
+            createLabirint(item);
     }
     return true;
 }
@@ -92,6 +99,14 @@ function createLabirint(objBlocks) {
 //console.log(objMap.fields.blocks[0][0].i);
 createLabirint(objMap.fields.blocks[0][0]);
 
+//console.log(arrStock);
+/*
+for (i=0; i<arrStock.length; i++ )
+{
+    createLabirint(arrStock[i]);
+
+
+}*/
 
 
 var MapDom = document.getElementById(objMap.config.patchID);
@@ -119,7 +134,7 @@ function getMove(){
     var KeyID = (window.event) ? event.keyCode : e.keyCode;
     switch(KeyID)
     {
-        case 37:// стрелка влево
+        case 37:// left
             var posx= Number (carDom.getAttribute("posx"));
             var posy= Number (carDom.getAttribute("posy"));
             if (posx - 1 < 0) {
@@ -127,7 +142,8 @@ function getMove(){
             } else {
                 posx--;
             }
-            placeCar(posy, posx)
+            placeCar(posy, posx);
+            carDom.style.transform = "rotate(0deg)";
             //console.log("Arrow Left");
             break;
         case 38: // стрелка вверх
@@ -139,7 +155,8 @@ function getMove(){
             else{
                 posy--;
             }
-            placeCar(posy, posx)
+            placeCar(posy, posx);
+            carDom.style.transform = "rotate(90deg)";
             //console.log("Arrow up");
             break;
         case 39: // стрелка вправо
@@ -149,7 +166,8 @@ function getMove(){
                 posx = posx
             }
             else{ posx++};
-            placeCar(posy, posx)
+            placeCar(posy, posx);
+            carDom.style.transform = "rotate(180deg)";
             //console.log("Arrow right");;
             break;
 
@@ -162,7 +180,9 @@ function getMove(){
             else {
                     posy++;
                 }
-            placeCar(posy, posx)
+            carDom.style.transform = "rotate(-90deg)";
+            placeCar(posy, posx);
+
             //console.log("Arrow doen");
             break;
     }
