@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 #Map{
     width: 1070px;
     margin: auto;
@@ -13,7 +16,8 @@
 .road, .wall{
     width:  69px;
     height: 64px;
-    float:  left;  
+    float:  left;
+    padding: 15px 0px;
 
 }
 
